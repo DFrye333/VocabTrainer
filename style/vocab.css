@@ -1,61 +1,47 @@
-#refreshContainer
-{
-	display : inline-block;
-}
-
-#flipContainer
-{
-	display : block;
-	text-align : center;
-}
-
-#revealBox
-{
-}
-
 #numWordsBox
 {
-	width : 100px;
-	height : 40px;
-	margin: 3px 3px 3px 3px;
+	width : 160px;
+	height : 60px;
+	margin: 6px 6px 6px 6px;
 	background-color : #ADD8E6;
 	color : black;
-	font : 16pt bold arial, sans-serif;
+	font : 24pt bold arial, sans-serif;
 	text-align : center;
 	border : 2px solid gray;
-	border-radius : 3px;
+	border-radius : 10px;
 }
 
-#wordListContainer
+.wordCard
 {
-	margin : 3px 3px 3px 3px;
-	display : inline-block;
-	overflow : hidden;
-	border : 2px solid gray;
-	border-radius : 3px;
-}
-
-#wordListContainer select
-{
-	width : auto;
-	height : auto;
-	margin: -3px -20px -3px -3px;
+	width : 300px;
+	height : 100px;
+	margin: 10px 10px 10px 10px;
 	color : black;
 	cursor : pointer;
 	background-color : #ADD8E6;
-	font : 12pt bold arial, sans-serif;
+	font : 18pt bold arial, sans-serif;
+	text-align : center;
+	border : 2px solid gray;
+	border-radius : 10px;
+}
+
+.wordCardFlip
+{
+	height : auto;
+	transition : transform 0.5s;
+	transform : rotateY(360deg);
 }
 
 .button0
 {
-	width : 100px;
-	height: 40px;
-	margin : 3px 3px 3px 3px;
+	width : 160px;
+	height: 60px;
+	margin : 6px 6px 6px 6px;
 	border : none;
 	cursor : pointer;
-	font : 12pt bold arial, sans-serif;
+	font : 24pt bold arial, sans-serif;
 	background-color: #0C71E1;
-	color: #FFFFFF;
+	color: white;
 	vertical-align : top;
 	text-align: center;
 	border: 2px solid gray;
@@ -67,16 +53,16 @@
 	background-color : #1C81F1;
 }
 
-#vocabForm
+#refreshForm
 {
-	display : inline-block;
 	text-align : left;
-	vertical-align : top;
+	display : inline-block;
 }
 
 #vocabTrainer
 {
-	display : inline-block;
+	/*width : 100%;
+	display : inline-block;*/
 }
 
 .center
@@ -84,13 +70,30 @@
 	text-align : center;
 }
 
-.header0
+.text0
 {
-	color : #0F0F0F;
-	font : 36pt bold arial, serif;
+	color : black;
+	font : 72pt bold arial, sans-serif;
+}
+
+.text1
+{
+	color : black;
+	font : 32pt bold arial, serif;
+}
+
+.text2
+{
+	color : black;
+	font : 16pt bold arial, serif;
 }
 
 body
 {
 	background-color : #FFE1E1;
+}
+
+table
+{
+	empty-cells : show;
 }

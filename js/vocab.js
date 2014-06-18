@@ -2,10 +2,21 @@ function main(vocabEntries)
 {
 	$(document).ready(function()
 	{
-		$('input[name="flipButton"]').click(function(event)
+		$('button.wordCard').click(function(event)
 		{
-			var selectedIndex = $('select[name="wordList"]').val();
-			$('span[id="revealBox"] span').html(JSON.stringify(vocabEntries[selectedIndex].definition));
+			// $(this).removeClass('wordCardFlip');
+
+			if ($(this).html() == vocabEntries[$(this).val()].word)
+			{
+				$(this).addClass('wordCardFlip');
+				$(this).html(vocabEntries[$(this).val()].pos + " : " + vocabEntries[$(this).val()].definition + "<br/>");
+			}
+
+			else
+			{
+				$(this).removeClass('wordCardFlip');
+				$(this).html(vocabEntries[$(this).val()].word);
+			}
 		});
 	});
 }

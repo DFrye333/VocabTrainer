@@ -114,34 +114,35 @@ function build_html($vocabEntries)
 
 			<title>stndrd.io | Vocabulary Trainer</title>
 		</head>
+
 		<body onload="main(', htmlentities(json_encode($serializableVocabEntries)), ')"">
+
 			<div class="center">
-				<h1 class="header0">Vocabulary Trainer</h1>
+				<div class="text0">Vocabulary Trainer</div>
+
+				<p class="text2">
+					Click/tap a word card to flip it over and expose the part-of-speech and definition. Click/tap it again to return it to its original position.
+				</p>
+
 				<span id="vocabTrainer">
-					<span id="wordListContainer">
-						<select name="wordList" id="wordList" size="', $numWords, '" multiple="multiple">';
+					<form name="refreshForm" id="refreshForm" action="vocab.php" method="post">
+						<input type="submit" name="refreshSubmit" class="button0" value="Refresh" />
+						<input type="number" name="numWordsBox" id="numWordsBox" min="1" max="25" value="', $numWords, '" />
+					</form>
+					<span class="text1">Words</span>
+
+					<div id="wordCardContainer">';
 
 	for ($i = 0; $i < $numWords; ++$i)
 	{
-							echo '<option value="', $i , '">', $vocabEntries[$i]->word, '</option>';
+		echo '
+						<button value="', $i, '" class="wordCard">',
+							$vocabEntries[$i]->word,
+						'</button>';
 	}
 
 	echo '	
-						</select>
-					</span>
-
-					<form name="vocabForm" id="vocabForm" "action="vocab.php" method="post">
-						<span id="refreshContainer">
-							<input type="submit" name="refreshSubmit" class="button0" value="Refresh" />
-							<input type="number" name="numWordsBox" id="numWordsBox" min="1" max="25" value="', $numWords, '" />
-						</span>
-						<span id="flipContainer">
-							<input type="button" name="flipButton" class="button0" value="Flip" /><br />
-						</span>
-					</form>
-					<span name="revealBox" id="revealBox">
-						<span></span>
-					</span>
+					</div>
 				</span>
 			</div>
 
