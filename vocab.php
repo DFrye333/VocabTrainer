@@ -1,9 +1,8 @@
 <?php
 
-$numWords = 10;
-
 main();
 
+// Represents a vocabulary entry (encapsulating word, part-of-speech, and definition).
 class VocabEntry
 {
 	public function __construct($w, $p, $d)
@@ -34,9 +33,9 @@ class VocabEntry
 		return array('word' => $this->word, 'pos' => $this->pos, 'definition' => $this->definition);
 	}
 
-	protected $word = "";
-	protected $pos = "";
-	protected $definition = "";
+	private $word = "";
+	private $pos = "";
+	private $definition = "";
 }
 
 function main()
@@ -94,10 +93,12 @@ function main()
 	}
 }
 
+// Builds main application page HTML.
 function build_html($vocabEntries)
 {
 	$numWords = count($vocabEntries);
 
+	// Gather vocabulary entries into a JSON-able format.
 	$serializableVocabEntries = array();
 	for ($i = 0; $i < $numWords; ++$i)
 	{
@@ -109,7 +110,8 @@ function build_html($vocabEntries)
 		<html>
 		<head>
 			<link rel="stylesheet" href="style/vocab.css" type="text/css" />
-			<script src="//code.jquery.com/jquery-2.1.1.min.js" type="application/javascript"></script>
+			<script src="http://code.jquery.com/jquery-2.1.1.min.js" type="application/javascript"></script>
+			<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js" type="application/javascript"></script>
 			<script src="js/vocab.js" type="application/javascript"></script>
 
 			<title>stndrd.io | Vocabulary Trainer</title>
@@ -121,7 +123,7 @@ function build_html($vocabEntries)
 				<div class="text0">Vocabulary Trainer</div>
 
 				<p class="text2">
-					Click/tap a word card to flip it over and expose the part-of-speech and definition. Click/tap it again to return it to its original position.
+					Click/tap a word card to flip it over and expose the part of speech and definition. Click/tap it again to return it to its original position.
 				</p>
 
 				<span id="vocabTrainer">
@@ -133,6 +135,7 @@ function build_html($vocabEntries)
 
 					<div id="wordCardContainer">';
 
+	// Fill vocabulary cards.
 	for ($i = 0; $i < $numWords; ++$i)
 	{
 		echo '
